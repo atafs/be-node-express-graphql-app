@@ -4,7 +4,7 @@ Contains all of the knowledge required to tell graphql what our app data looks l
 - how each object is related with each other
 */
 const graphql = require('graphql');
-const _ = require('lodash');
+const axios = require('axios');
 
 const {
     GraphQLObjectType,
@@ -12,20 +12,6 @@ const {
     GraphQLInt,
     GraphQLSchema
 } = graphql;
-
-// hardcoded list of users
-const users = [
-    {
-        id: '23',
-        firstName: 'Americo',
-        age: 39
-    },
-    {
-        id: '47',
-        firstName: 'Hugo',
-        age: 2
-    }
-];
 
 // properties of the user type
 const UserType = new GraphQLObjectType({
@@ -49,7 +35,11 @@ const RootQuery = new GraphQLObjectType({
             },
             // get the data we want
             resolve(parentValue, args) {
-                return _.find(users, { id: args.id });
+                return axios.get(`http://localhost:3000/users/${args.id}`)
+                    .then(resp => {
+                        console.log('GET /users/:id', resp.data)
+                        return resp.data
+                    })
             }
         }
     }
