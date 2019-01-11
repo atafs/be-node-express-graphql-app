@@ -1,0 +1,25 @@
+{
+  "name": "be-node-express-graphql-app",
+  "version": "1.0.0",
+  "description": "Back end node express GraphQL App!!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atafs/be-node-express-graphql-app.git"
+  },
+  "author": "Americo Tomas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atafs/be-node-express-graphql-app/issues"
+  },
+  "homepage": "https://github.com/atafs/be-node-express-graphql-app#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.0.2",
+    "lodash": "^4.17.11"
+  }
+}
